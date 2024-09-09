@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script> 
+            let data= "<h1>Welcome To JS </h1> <p> The js is working </p> The js is popular";
+           const one =() =>{
+              document.write(data);
+           }
+
+           const two =() =>{
+             document.getElementById("container").innerText = data;
+           }
+
+           const three =() =>{
+             document.getElementById("container").innerHTML = data;
+           }
+
+            const four = ()=>{
+                let edu = document.getElementById("xyz").value;
+                //alert(edu);
+                 document.getElementById("container").innerText = edu;
+            }
+        </script>
+    </head>
+      <body> 
+
+        <h1>.innertext and .innerHTML</h1>
+        <button onclick="one()"> DOCUMENT.Write</button>
+        <button onclick="two()"> .innerText</button>
+        <button onclick="three()"> .innerHTML</button>
+
+        <br/><br/>
+            Enter your Edu: <input type="text" id="xyz"/>
+            <button onclick="four()">SAVE</button>
+        <br/>
+
+        <div id="container"></div>
+
+      </body>
+</html>

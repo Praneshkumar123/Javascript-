@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script> 
+
+            const four = ()=>{
+                let edu = document.getElementById("xyz").value; //how to pick the value
+                //alert(edu);
+                 document.getElementById("container").innerText = edu; // how to print the value
+                 document.getElementById("xyz").value=""; // it clear the textbox
+
+                 document.getElementById("Total").innerText = edu.length;
+            }
+        </script>
+    </head>
+      <body> 
+
+        <h1>.innertext and .value</h1>
+        
+            Enter your Edu: <input type="text" id="xyz"/>
+            <button onclick="four()">SAVE</button>
+        <br/><br/>
+
+        <div id="container"></div>
+        <h3 id="Total"></h3>
+
+      </body>
+</html>

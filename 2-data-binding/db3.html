@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script> 
+
+            const four = ()=>{
+                let edu = document.getElementById("xyz").value; //how to pick the value
+                //alert(edu);
+                 document.getElementById("container").innerText = edu; // how to print the value
+                
+                 document.getElementById("Total").innerText = edu.length;
+
+                 document.getElementById("message").innerText = 20 - edu.length + "character is left out of 20 chars";
+            }
+        </script>
+    </head>
+      <body>  
+
+        <h1>.innertext and .value</h1>
+        
+            Enter your Edu: <input type="text" id="xyz" onkeyup="four()" maxlength="20" size="80"/>
+           
+        <br/><br/>
+
+        <div id="container"></div>
+        <h3 id="Total"></h3>
+        <h5 id="message"></h5>
+
+      </body>
+</html>

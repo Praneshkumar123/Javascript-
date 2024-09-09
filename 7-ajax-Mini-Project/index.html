@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="dist/css/bootstrap.css"/>
+        <link rel="stylesheet" href="icons/css/all.css"/>
+        <script>
+            const  Profile = ()=>{
+                var xmlhttp = new XMLHttpRequest(); // object is created of XMLHttpRequest - 0
+                xmlhttp.open("GET","profile.html"); // it generate url based on get method - 1
+                xmlhttp.send(); // request is sent to above generated url - 2
+                //3 - Loading Downloading;
+
+                    xmlhttp.onreadystatechange = function() {   
+                        if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("ajaxdata").innerHTML = this.responseText;
+                }
+                };
+            }
+            /*
+Value	State	Description
+0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE The operation is complete.
+            */
+            const education = ()=>{
+                var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("ajaxdata").innerHTML = this.responseText;
+                }
+                };
+                xmlhttp.open("GET","education.html");
+                xmlhttp.send();
+            }
+
+            const skill = ()=>{
+                var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+
+                        let myskill = JSON.parse(this.responseText);
+                        let data =` <div class='row'>
+                                        <h3 class='col-lg-12 text-center mb-4'> My Skills </h3>`;
+                            myskill.map((skill, index)=>{
+                                data += `<p class='col-lg-3 mb-4' > ${skill.skill} -<b> Level ${skill.level}</b> </p>`
+                            })
+                            data +=`</div>`;
+                            document.getElementById("ajaxdata").innerHTML = data;
+                }
+                };
+                xmlhttp.open("GET","skill.json");
+                xmlhttp.send();
+            }
+
+            const project = ()=>{
+                var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("ajaxdata").innerHTML = this.responseText;
+                }
+                };
+                xmlhttp.open("GET","project.html");
+                xmlhttp.send();
+            }
+
+            const contact = ()=>{
+                var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("ajaxdata").innerHTML = this.responseText;
+                }
+                };
+                xmlhttp.open("GET","contact.html");
+                xmlhttp.send();
+            }
+            
+        </script>
+    </head>
+    <body onload="Profile()">
+        <div class="container mt-3">
+           <div class="row">
+               <div class="col-lg-4">
+                    <h2 class="text-warning">
+                            <i class="fa fa-users"></i> Profile Management
+                    </h2>
+                </div>
+                <div class="col-lg-8 text-end">
+                     <div class="btn-group">
+                         <button class="btn btn-primary" onclick="Profile()"><i class="fa fa-user"></i> My Profile </button>
+                          <button class="btn btn-info" onclick="education()"><i class="fa fa-graduation-cap"></i> Education </button>
+                          <button class="btn btn-success" onclick="skill()"><i class="fa fa-edit"></i> Skills </button>
+                          <button class="btn btn-secondary" onclick="project()"><i class="fa fa-suitcase"></i> Project </button>
+                         <button class="btn btn-warning" onclick="contact()"><i class="fa fa-headset"></i> My Contact </button>
+                    </div>
+                </div>
+            </div>
+         </div>
+        <div class="container mt-5" id="ajaxdata">
+            <h3 class="text-center text-danger mt-5"> Please Wait Loading...</h3>
+        </div>
+    </body>
+</html>

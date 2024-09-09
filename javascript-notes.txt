@@ -1,0 +1,82 @@
+
+    what is difference between var, let, const ?
+
+        1. Variable value change
+            -> var allow to change value,
+            -> let also allow to change value,
+            -> const do not allow to change value.
+
+        2. Re-declaration
+            -> var allow ro re-declaration,
+            -> let & const do not allow.
+
+        3. Scope of Variable
+            -> var has global scope 
+            -> let & const has block level scope 
+
+===========Control Structure==========
+    1. Condition
+        => if else
+        => if else if
+        => nested if
+        => switch case
+
+    2. Loop
+        => for loop 
+        => while loop 
+        => do while loop
+----------------------------------------
+    Array in javascript 
+    Syntax and Structure of data in array
+        =>single dimensional
+        =>object
+        =>array of object
+        =>nexted array
+---------------------------------------------
+    Function
+        3 type of function writting 
+---------------------------------------------
+    javascript Listing function
+        map()
+        forEach()
+        filter()
+---------------------------------------------------
+
+
+================2ND Module Data Binding=================
+    The communication between html and javascript
+        1. popup window
+            ->alert()
+            ->confirm()
+            ->prompt()
+
+        2. Events from javascript
+            -> mouse events 
+                a. onclick
+                b. ondbclick
+                c. onmousedown
+                d. onmouseenter
+                e. onmouseout
+                f. onmousemove
+                g. onchange
+
+            -> keyboard events
+                a. onkeypress
+                b. onkeydown
+                c. onkeyup
+                d. onfocus
+                e. onblur
+            
+            -> form event
+                a. onsubmit - will complete with form validation 
+            
+            -> body event
+                a. onload
+----------------------------------------------------------
+    Difference Between .innerText &.innerHTML
+----------------------------------------------------------
+        CRUD
+        C- Create
+        R- Read
+        U- Update
+        D- Delete

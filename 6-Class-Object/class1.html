@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+
+            class Mytest{
+                constructor(){
+                    this.mobile = 7895641320;
+                    this.adress = "Bangalore"; 
+                    this.allservice = ['Web Design', 'Logo Details', 'Digital Marketing', 'Hiring'];            
+                }
+
+                service =()=>{
+                    let data = "<h1> Our Services </h1>";
+                    this.allservice.map((serviceName, index )=>{
+                        data += `<p> ${serviceName} <button onclick=obj1.delservice(${index})> Delete </button> </p>`;
+                    })
+                    this.printMe(data);
+                }
+
+                delservice =(index)=>{
+                    this.allservice.splice(index,1);
+                    this.service();
+                }
+                
+                home = ()=>{
+                    let data = "<h1> Welcome Home </h1>";
+                        data = data + `<p> ${ this.mobile } </p>`;
+                    this.printMe(data); 
+                }
+
+                about = ()=>{
+                    let data = "<h1> About Us </h1>";
+                    data = data + `<p> ${ this.adress } </p>`;
+                    this.printMe(data); 
+                } 
+
+                printMe =(data)=>{
+                    document.getElementById("container").innerHTML = data;
+                }
+
+                newService = () =>{
+                    let name = document.getElementById("servicename");
+                    this.allservice.push(name.value); // push new element at end of array 
+                    name.value=""; // clear the textbox
+                    this.service();
+                }
+            }
+            const obj1 = new Mytest(); // object creation of a class
+        </script>
+    </head>
+    <body>
+        <h1> Class Obejct Simple Example </h1> 
+
+         Enter Service Name : <input type = "text" id="servicename"/>
+                            <button onclick="obj1.newService()">Save</button>
+        <button onclick="obj1.home()"> My Home </button>
+        <button onclick="obj1.about()"> About Us </button>
+        <button onclick="obj1.service()"> Our Services </button>
+
+        <div id="container"></div>
+    </body>
+</html>

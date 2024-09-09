@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+
+        </style>
+        <script>
+            const showme = (blockid)=>{
+                switch(blockid){
+                    case 'one':
+                        document.getElementById("two").style.display="none";
+                        document.getElementById("one").style.display="block";
+                        break;
+
+                    case 'two':
+                        document.getElementById("one").style.display="none";
+                        document.getElementById("two").style.display="block";
+                        break;
+
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1 align="center"> How To Apply Css Using Javascript </h1>
+        <button onclick="showme('one')">Bangalore</button>
+        <button onclick="showme('two')">Mumbai</button>
+
+        <fieldset id="one">
+            <legend> Bangalore </legend>
+            <p> Bangalore is sometimes referred to as the “Silicon Valley of India” (or “IT capital of India”) because
+                 of its role as the nation's leading information technology (IT) exporter. 
+                Indian technological organisations ISRO, Infosys, Wipro and HAL are headquartered in the city.</p>
+        </fieldset>
+        <fieldset id="two" style="display: none;">
+            <legend> Mumbai </legend>
+            <p> Mumbai, one of the major cosmopolitan cities in India, is a popular tourist attraction. 
+                It is primarily famous for large markets, mesmerising beaches, towering buildings, and exquisite five-star hotels.</p>
+        </fieldset>
+    </body>
+</html>

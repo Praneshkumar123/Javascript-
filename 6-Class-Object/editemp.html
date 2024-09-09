@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            class ManageEmp{
+                saveemp = () =>{
+                    let fullname = document.getElementById("fullname").value;
+                    let salary = document.getElementById("salary").value;
+                    let city = document.getElementById("city").value;
+                    let mobile = document.getElementById("mobile").value;
+
+                    let newemp = {empname:fullname, salary:salary, city:city, mobile:mobile};
+
+                    const queryParams = new URLSearchParams(window.location.search);
+	                const id = queryParams.get('id');
+                    let url = "http://localhost:1234/emplist/"+id;
+
+                    let postData = {
+                        headers:{'Content-Type':'application/json'},
+                        method:'put',
+                        body:JSON.stringify(newemp) //it conver array to json & object to json both will work
+                    }
+
+                    fetch(url, postData)
+                    .then(response => response.json())
+                    .then(empinfo=>{
+                        alert("Employee Updated Successfully !");
+                        window.location.href="class2.html";
+                    })
+                } 
+                
+                getempinfo = () =>{
+                    const queryParams = new URLSearchParams(window.location.search);
+	                const id = queryParams.get('id');
+                    let url = "http://localhost:1234/emplist/"+id;
+                    fetch(url)
+                    .then(response=>response.json())
+                    .then(userinfo=>{
+                        document.getElementById("fullname").value = userinfo.empname;
+                        document.getElementById("salary").value = userinfo.salary;
+                        document.getElementById("city").value = userinfo.city;
+                        document.getElementById("mobile").value = userinfo.mobile;
+                    })
+                }
+            }
+            const obj3 = new ManageEmp();
+        </script>
+    </head>
+    <body onload="obj3.getempinfo()">
+        <table align="center" cellpadding="15">
+            <caption>
+                <h1> Edit Employee Details</h1>
+            </caption>
+            <tr>
+                <th> Employee Name </th>
+                <td> <input type="text" id="fullname"/></td>
+            </tr>
+            <tr>
+                <th> Employee Salary </th>
+                <td> <input type="number" id="salary"/></td>
+            </tr>
+            <tr>
+                <th> Employee City </th>
+                <td> <input type="text" id="city"/></td>
+            </tr>
+            <tr>
+                <th> Employee Mobile No </th>
+                <td> <input type="number" id="mobile"/></td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <button onclick="obj3.saveemp()"> Update Employee </button>
+                    <hr/>
+                    <a href="class2.html"> Back To List</a>
+                </th>
+            </tr>
+        </table>
+    </body>
+</html>

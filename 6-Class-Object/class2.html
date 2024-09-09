@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css"/>
+        <script>
+            class MyData{
+                getEmp = () =>{
+                    fetch("http://localhost:1234/emplist")
+                    .then(response=>response.json())
+                    .then(empArray=>{
+                        let data = "";
+                        empArray.reverse().map((emp, index)=>{
+                            data += `<div>
+                                        <h3> ${emp.empname} </h3>
+                                        <p> ${emp.salary} </p>
+                                        <p> ${emp.city} </p>
+                                        <p> ${emp.mobile} </p>
+                                        <button onclick=obj3.deleteEmp('${emp.id}')>Delete</button>
+                                        <a href=editemp.html?id=${emp.id}><button>Edit</button></a>
+                                    </div>`;
+                        })
+                        document.getElementById("container").innerHTML = data;
+                    })
+                }
+
+                deleteEmp = (id) =>{
+                    let url ="http://localhost:1234/emplist/"+id;
+                    let postData = {method:"delete"};
+                    fetch(url, postData)
+                    .then(response=>response.json())
+                    .then(empinfo=>{
+                        alert(empinfo.empname + "- Deleted Successfully !");
+                        this.getEmp();//to reload the list after delete
+                    })
+                }
+
+                getProduct = () =>{
+                    fetch("http://localhost:1234/productlist") 
+                    .then(response=>response.json())
+                    .then(productArray=>{
+                        let data ="";
+                        productArray.map((product, index)=>{
+                            data += `<div>
+                                        <h3> ${product.pname} </h3>
+                                        <p> ${product.cost} </p>
+                                        <p> ${product.quantity} </p>
+                                        <button onclick=obj3.deleteProduct('${product.id}')>Delete</button>
+                                        <a href=editproduct.html?id=${product.id}><button>Edit</button></a>
+                                    </div>`;
+                        })
+                        document.getElementById("container").innerHTML = data;
+                    })
+                }
+
+                deleteProduct = (id) =>{
+                    let url ="http://localhost:1234/productlist/"+id;
+                    let postData = {method:"delete"};
+                    fetch(url, postData)
+                    .then(response=>response.json())
+                    .then(productinfo=>{
+                        alert(productinfo.pname + "- Deleted Successfully !");
+                        this.getProduct();//to reload the list after delete
+                    })
+                }
+
+                newemp = ()=>{
+                    window.location.href="newemp.html"
+                }
+
+                newproduct = ()=>{
+                    window.location.href="newproduct.html"
+                }
+            }
+
+            const obj3 = new MyData();
+        </script>
+    </head>
+    <body onload="obj3.getEmp()">
+        <header>
+            <h1> Api Call in Class Object </h1>
+            <button onclick="obj3.getEmp()"> Employee List </button>
+            <button onclick="obj3.newemp()"> Add Employee </button>
+            <button onclick="obj3.getProduct()"> Product List </button>
+            <button onclick="obj3.newproduct()"> Add Product </button>
+        </header>
+
+        <section id="container"></section>
+    </body>
+</html>

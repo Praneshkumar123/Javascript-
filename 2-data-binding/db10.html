@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+
+        </style>
+        <script>
+            let blog =[
+               " abc abc abc abc abc abc abc acb  abc abc abc aabc  abc chennai abc abc abc abc abc abc abc abc abc abc abc abc ",
+               " abc abc abc abc abc abc abc acb  abc abc abc aabc  abc abc abc abc abc mumbai abc abc abc abc abc abc abc abc abc ",
+               " abc abc abc abc abc abc abc acb  pune abc abc abc aabc  abc abc abc abc abc abc abc abc abc abc abc abc abc abc ",
+               " abc abc abc abc abc abc abc acb  abc abc abc aabc  abc abc abc abc abc abc abc abc abc abc abc kolkata abc abc abc ",
+               " abc abc abc abc abc abc abc acb  abc abc  goa abc aabc  abc abc abc abc abc abc abc abc abc abc abc abc abc abc ",
+               " abc abc abc abc abc abc abc acb  abc abc delhi abc aabc  abc abc abc abc abc abc abc abc abc abc abc abc abc abc ",
+               " abc abc abc abc abc abc abc acb  abc abc BANGALORE abc aabc  abc abc abc abc abc abc abc abc abc abc abc abc abc abc "
+
+            ];
+
+            const getblog = (keyword="")=>{
+                
+                let data = "<h1> Recent Blogs </h1>";
+                blog.map((title, index)=>{
+                    if(title.toLowerCase().match(keyword.toLowerCase()))
+                {
+                    data=data + `<p> ${title} </p>`;
+                }
+                })
+                document.getElementById("container").innerHTML=data;
+            }
+        </script>
+    </head>
+    <body onload="getblog()">
+        <p> Search : <input type="text" onkeyup="getblog(this.value)"/> </p>
+        <section id="container"></section>
+    </body>
+</html>

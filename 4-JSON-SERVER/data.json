@@ -1,0 +1,65 @@
+{
+  "emplist": [
+    {
+      "empname": "PraneshKumar",
+      "salary": "35000",
+      "city": "Coimbatore",
+      "mobile": "9629438554",
+      "id": "6454"
+    },
+    {
+      "id": "1b95",
+      "empname": "Yuvan",
+      "mobile": "8527410963",
+      "salary": "30000",
+      "city": "Coimbatore"
+    },
+    {
+      "id": "9358",
+      "empname": "Suhas",
+      "mobile": "7418529630",
+      "salary": "35000",
+      "city": "Mumbai"
+    },
+    {
+      "empname": "Akash",
+      "mobile": "9523410732",
+      "salary": "27000",
+      "city": "Lucknow",
+      "id": "6db5"
+    },
+    {
+      "empname": "Gokul",
+      "salary": "26000",
+      "city": "Bangalore ",
+      "mobile": "9638527410",
+      "id": "9ea5"
+    }
+  ],
+  "productlist": [
+    {
+      "pname": "Apple ",
+      "cost": "300",
+      "quantity": "10",
+      "id": "1"
+    },
+    {
+      "id": "e96e",
+      "pname": "Grapes",
+      "cost": "300",
+      "quantity": "14"
+    },
+    {
+      "id": "10e5",
+      "pname": "Mango ",
+      "cost": "175",
+      "quantity": "6"
+    },
+    {
+      "id": "d47d",
+      "pname": "Blue Berry",
+      "cost": "600",
+      "quantity": "20"
+    }
+  ]
+}

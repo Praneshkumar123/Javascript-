@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            
+        </style>
+        <script>
+            let userlist=[
+                {name:"Yuvan", age:"23 Years", edu:"MCA", exp:"2 Years"},
+                {name:"Suhas", age:"19 Years", edu:"CA", exp:"1 Years"},
+                {name:"Akash", age:"19 Years", edu:"MA", exp:"1 Years"},
+                {name:"Varun", age:"22 Years", edu:"MBA", exp:"2 Years"},
+            ];
+
+            const getUser = () =>{
+                let data = "";
+                userlist.map((user, index)=>{
+                    data = data + `<tr>
+                                        <td> ${index} </td>
+                                        <td> ${user.name} </td>
+                                        <td> ${user.age} </td>
+                                        <td> ${user.edu} </td>
+                                        <td> ${user.exp} </td>
+                                        <td> <button onclick=deleteUser(${index})> Delete </button> </td>
+                                   </tr>`;
+                })
+            document.getElementById("container").innerHTML = data;
+            document.getElementById("total").innerText = userlist.length + " - All User ";
+            }
+            const deleteUser = (index)=>{
+                userlist.splice(index, 1);
+                getUser();
+            }
+           const save = () => {
+                let fullname = document.getElementById("fname");
+                let age = document.getElementById("myage");
+                let edu = document.getElementById("myedu");
+                let exp = document.getElementById("myexp");
+                
+                if(fullname.value!=""){
+                let newuser = {name:fullname.value, age:age.value,edu:edu.value,exp:exp.value };
+
+                userlist = userlist.concat(newuser);
+                getUser();
+                fullname.value="";
+                age.value="";
+                edu.value="";
+                exp.value="";
+            }else{
+                alert("Invalid Name");
+            }
+        }
+        </script>
+    </head>
+    <body onload="getUser()">
+        <p id="total" align="center"> 0 Records </p>
+        <table align="left" cellpadding="10">
+            <tr> 
+                <th> Full Name </th>
+                <th> <input type="text" id="fname"/></th>
+            </tr>
+            <tr> 
+                <th> Age </th>
+                <th> <input type="text" id="myage"/></th>
+            </tr>
+            <tr> 
+                <th> Education </th>
+                <th> <input type="text" id="myedu"/></th>
+            </tr>
+            <tr> 
+                <th> Experience </th>
+                <th> <input type="text" id="myexp"/></th>
+            </tr>
+            <tr> 
+                <th colspan="2"> 
+                    <button onclick="save()"> Save </button>
+                </th>
+            </tr>
+        </table>
+
+        <table align="right" cellpadding="15">
+            <thead>
+                <tr bgcolor="lightgray" cellpadding="10">
+                    <th> Sl No </th>
+                    <th> Full Name </th>
+                    <th> Age </th>
+                    <th> Education </th>
+                    <th> Experience </th>
+                    <th> Action </th>
+                </tr>
+            </thead>
+            <tbody id="container">
+
+            </tbody>
+        </table>
+    </body>
+</html>

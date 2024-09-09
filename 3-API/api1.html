@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        p{
+            text-align: justify;
+            
+        }
+        h3{
+            color: red;
+            text-transform: capitalize;
+            font-size: 20px;
+        }
+        small{
+            color: blue;
+            font-size: 15px;
+        }
+        .three{
+            display: inline-block;
+            margin: 2%;
+            padding: 1%;
+            width: 27%;
+            min-height: 200px;
+            vertical-align: top;
+            box-shadow: 0px 0px 2px grey;
+            border-radius: 5px;
+        }
+    </style>
+    <head>
+        <script>
+            const gethome = ()=>{
+                fetch("home.html")
+                .then(fileData=>fileData.text())
+                .then(originalData=>{    
+                    document.getElementById("container").innerHTML=originalData;
+                })
+            }
+            const getabout = ()=>{
+                fetch("about.html")
+                .then(fileData=>fileData.text())
+                .then(originalData=>{
+                    document.getElementById("container").innerHTML=originalData;
+                })
+            }
+            const getgallery= ()=>{
+                fetch("gallery.html")
+                .then(fileData=>fileData.text())
+                .then(originalData=>{
+                    document.getElementById("container").innerHTML=originalData;
+                })
+            }
+            const getblog= ()=>{
+                fetch("https://jsonplaceholder.typicode.com/posts")
+                .then(fileData=>fileData.json())
+                .then(blogArray=>{
+                    let data ="";
+                    blogArray.map((blog, index)=>{
+                        data = data +`<div class='three'> 
+                                            <h3> ${blog.title}</h3>
+                                            <p> ${blog.body}</p>
+                                        </div>`;
+                    })
+                    document.getElementById("container").innerHTML=data;
+                })
+            }
+            const getcomment= ()=>{
+                fetch("https://jsonplaceholder.typicode.com/comments")
+                .then(fileData=>fileData.json())
+                .then(CommentArray=>{
+                    let data ="";
+                    CommentArray.map((comment, index)=>{
+                        data = data +`<div class='three'> 
+                                            <h3> ${comment.name}</h3>
+                                            <small> ${comment.email}</small>
+                                            <p> ${comment.body}</p>
+                                        </div>`;
+                    })
+                    document.getElementById("container").innerHTML=data;
+                })
+            }
+
+            const getalbums= ()=>{
+                fetch("https://jsonplaceholder.typicode.com/albums")
+                .then(fileData=>fileData.json())
+                .then(AlbumArray=>{
+                    let data ="";
+                    AlbumArray.map((album, index)=>{
+                        data = data +`<div class='three'> 
+                                            <h3>UserId: ${album.userId}</h3>
+                                            <p>Id: ${album.id}</p>
+                                            <p>Title: ${album.title}</p>
+                                        </div>`;
+                    })
+                    document.getElementById("container").innerHTML=data;
+                })
+            }
+
+            const gettodos= ()=>{
+                fetch("https://jsonplaceholder.typicode.com/todos")
+                .then(fileData=>fileData.json())
+                .then(todosArray=>{
+                    let data ="";
+                    todosArray.map((todos, index)=>{
+                        data = data +`<div class='three'> 
+                                            <h3>UserId: ${todos.userId}</h3>
+                                            <p>Id: ${todos.id}</p>
+                                            <p>Title: ${todos.title}</p>
+                                            <p>Completed: ${todos.completed}</p>
+                                        </div>`;
+                    })
+                    document.getElementById("container").innerHTML=data;
+                })
+            }
+
+            const getphotos= ()=>{
+                fetch("https://jsonplaceholder.typicode.com/photos")
+                .then(fileData=>fileData.json())
+                .then(photosArray=>{
+                    let data ="";
+                    photosArray.map((photos, index)=>{
+                        data = data +`<div class='three'> 
+                                            <h3> AlbumId: ${photos.albumId}</h3>
+                                            <p>Id: ${photos.id}</p>
+                                            <p>Title:  ${photos.title}</p>
+                                            <p>URL: ${photos.url}</p>
+                                            <p>ThumbnailUrl: ${photos.thumbnailUrl}</p>
+                                        </div>`;
+                    })
+                    document.getElementById("container").innerHTML=data;
+                })
+            }
+            const getusers= ()=>{
+                fetch("https://jsonplaceholder.typicode.com/users")
+                .then(fileData=>fileData.json())
+                .then(usersArray=>{
+                    let data =""; 
+                    usersArray.map((users, index)=>{
+                        data = data +`<div class='three'> 
+                                            <h3>Id : ${users.id}</h3>
+                                            <p> Name: ${users.name}</p>
+                                            <p> Username: ${users.username}</p>
+                                            <p> Email: ${users.email}</p>
+                                            <p> Adress :</p>
+                                            <p> Street:${users.address.street}</p>
+                                            <p>Suite:${users.address.suite}</p>
+                                            <p>City:${users.address.city}</p>
+                                            <p> Zipcode:${users.address.zipcode}<p>
+                                            <p> geo :</p>
+                                            <p>Lat: ${users.address.geo.lat}</p>
+                                            <p>Lng: ${users.address.geo.lng}</p>
+                                            <p>Phone: ${users.phone}</p>
+                                            <p>Website: ${users.website}</p>
+                                            <p> Company :</p>
+                                            <p>Company Name: ${users.company.name}</p>
+                                            <p>CatchPhrase: ${users.company.catchPhrase}</p>
+                                            <p>Bs: ${users.company.bs}</p>
+                                        </div>`;
+                    })
+                    document.getElementById("container").innerHTML=data;
+                })
+            }
+            const getemp = () =>{
+                fetch("http://localhost:1234/emplist")
+                .then(response=>response.json())
+                .then(empArray=>{
+                    let data ="";
+                    empArray.map((emp, index)=>{
+                        data = data +`<div class='three'> 
+                                            <h3> Id- ${emp.id}</p>
+                                            <p>About:  ${emp.empname}</p>
+                                            <p> Mobile : ${emp.mobile}</p>
+                                            <p> Salary:${emp.salary}</p>
+                                            <p>City: ${emp.city}</p>
+                                            <button onclick=delemp('${emp.id}')>Delete</button>
+                                            <a href=editemp.html?id=${emp.id}><button>Edit</button></a>
+                                            
+                                        </div>`;
+                    })
+                    document.getElementById("container").innerHTML=data;
+                })
+            }
+                // when we pass data from 1 page to other page via url that is called query string.
+                // where ? mark is  seprator between file name and variable name
+            const delemp =(empid)=>{
+                let url = "http://localhost:1234/emplist/"+empid;
+                let postData = {method:'delete'};
+                fetch(url, postData)
+                .then(response=>response.json())
+                .then(empinfo=>{
+                    alert(empinfo.empname + "Deleted Successfully ! ");
+                    getemp(); //reload the list after delete 
+                })
+            }
+            const getproduct = () =>{
+                fetch("http://localhost:1234/productlist")
+                .then(response=>response.json())
+                .then(productArray=>{
+                    let data ="";
+                    productArray.map((product, index)=>{
+                        data = data +`<div class='three'> 
+                                            <h3> Id- ${product.id}</p>
+                                            <p> ${product.pname}</p>
+                                            <p> ${product.cost}</p>
+                                            <p> ${product.quantity}</p>
+                                            <button onclick=delproduct('${product.id}')>Delete</button>
+                                            <a href=editproduct.html?id=${product.id}><button>Edit</button></a>
+                                        </div>`;
+                    })
+                    document.getElementById("container").innerHTML=data;
+                })
+            }
+            const delproduct =(productid)=>{
+                let url = "http://localhost:1234/productlist/"+productid;
+                let postData = {method:'delete'};
+                fetch(url, postData)
+                .then(response=>response.json())
+                .then(productinfo=>{
+                    alert(productinfo.pname + "Deleted Successfully ! ");
+                    getproduct(); //reload the list after delete 
+                })
+            }
+            const addemp = ()=>{
+                window.location.href="newemp.html"; // it redirect to newmap.html
+            }
+            const addproduct = ()=>{
+                window.location.href="newproduct.html"; // it redirect to newmap.html
+            }
+        </script>
+    </head>
+    <body onload="gethome()"> 
+        <h1> Javascript Fetch() api Basic Example </h1>
+        <button onclick="gethome()"> Home </button>
+        <button onclick="getabout()"> About Us </button>
+        <button onclick="getgallery()"> Gallery </button>
+        <button onclick="getblog()"> Recent Blog </button>
+        <button onclick="getcomment()"> Recent Comment </button>
+        <button onclick="getalbums()"> Recent Albums </button>
+        <button onclick="gettodos()"> Recent Todos </button>
+        <button onclick="getusers()"> Recent Users </button>
+        <button onclick="getphotos()"> Recent Photos </button>
+        <button onclick="getemp()"> Employee </button>
+        <button onclick="getproduct()"> Products </button>
+        <button onclick="addemp()"> Add Employee </button>
+        <button onclick="addproduct()"> Add Product </button>
+
+        <br/><br/>
+        <section id="container"></section>
+    </body>
+</html>

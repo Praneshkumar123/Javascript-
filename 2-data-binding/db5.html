@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>       
+        <script>
+           let userlist = ['Yuvan','Suhas','Akash','varun','pranesh'];
+           const printUser = () =>{
+                let data ="";
+                userlist.map((name,index)=>{
+                    data = data + `<tr>
+                                        <td> ${index}</td>
+                                        <td> ${name}</td>
+                                        <td> <button onclick=deleteUser(${index})>Delete</button></td>
+                                   </tr>`;
+                })
+                document.getElementById("container").innerHTML =data;
+           }
+           const save =() =>{
+            let fullname = document.getElementById("fname").value;
+            userlist.push(fullname);
+            printUser();
+            document.getElementById("fname").value="";
+            document.getElementById("total").innerText= userlist.length + ": All Records";
+           }
+           const deleteUser = (index) =>{
+                userlist.splice(index, 1);
+                printUser();//reload the list
+           }
+
+           const deleteFirst = () => {
+                 userlist.shift();//delete 1stg element of array
+                 printUser();//reload the list
+           }
+
+           const deleteLast = () => {
+                 userlist.pop();//delete 1stg element of array
+                 printUser();//reload the list
+           }
+        </script>
+    </head>
+    <body onload="printUser()">
+       <h1 align="center"> JavaScript Array Manipulation </h1> 
+       <br/>
+       <p align="center"> 
+        Enter Full Name : <input type="text" id="fname"/>
+        <button onclick="save()">Save</button>
+        <button onclick="deleteFirst()">Delete 1st Element</button>
+        <button onclick="deleteLast()">Delete Last Element</button>
+       </p>
+       <p id="total" align="center"> 0 Records</p>
+       <br/><br/>
+       <table align="center" cellpadding="15">
+        <thead>
+            <tr>
+                <th> SI No </th>
+                <th> Full Name </th>
+                <th> Action </th>
+            </tr>
+        </thead>
+        <tbody id="container">
+
+        </tbody>
+       </table>
+        <p> array.unshift ('apple')-add new element at begning of array </p>
+        <p> array.shift ()-delete  element from begning of array </p>
+        <p> array.push ('mango')-add element at end of array </p>
+        <p> array.pop ()-delete last element  of array </p>
+        <p> array.splice ('index,count')-it delete an element from given position </p>
+    </body>
+</html>

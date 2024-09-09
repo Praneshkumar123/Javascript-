@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+
+             const one = ()=>{
+                alert("Hi");
+                return true;
+            }
+        </script>
+    </head>
+    <body>
+
+        <h1> Form Event in javascript </h1>
+        <form action="saveuser.py" method="POST" onsubmit="return one()" >
+            <font color="red">* Marked fields are mandatory </font>
+            <p> Your Full Name* : <input type="text"/> </p>
+            <p> Your Mobile No* : <input type="number"/> </p>
+
+            <button type="submit"> Submit </button>
+            <button type="reset"> Rest </button>
+        </form>
+    </body>
+</html>

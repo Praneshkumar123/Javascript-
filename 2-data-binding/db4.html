@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            header {
+                padding:20px;
+                text-align: center;
+            }
+            section{
+                width: 80%;
+                margin: auto;
+            }
+            p{
+                width:20%;
+                margin:2%;
+                color: orange;
+                font-size: 40px;
+                display: inline-block;
+                vertical-align: top;
+            }
+            
+        </style>
+        <script>
+            const one =() =>{
+                 let data ="<h1> 1 to 10 Number </h1> \n";
+                 for(let i=1; i<=10; i++){
+                    data = data + "<p>"+ i + "</p> \n";
+                 }
+                 document.getElementById("container").innerHTML = data;
+            }
+
+            const two=() =>{
+                 let data ="<h1> 10 to 1 Number </h1> \n";
+                 for(let i=10; i>=1; i--){
+                    data = data + "<p>"+ i + "</p> \n";
+                 }
+                 document.getElementById("container").innerHTML = data;
+            }
+            const three=() =>{
+                 let data ="<h1> 1 to 20 Even No </h1> \n";
+                 for(let i=1; i<=20; i++){
+                    if(i%2==0)
+                     data = data + "<p>"+ i+"</p> \n";
+                 }
+                 document.getElementById("container").innerHTML = data;
+            }
+            const four=() =>{
+                 let data ="<h1> 1 to 20 Odd No </h1> \n";
+                 for(let i=1; i<=20; i=i+2){
+                     data = data + "<p>"+ i+"</p> \n";
+                 }
+                 document.getElementById("container").innerHTML = data;
+            }
+            const five=() =>{
+                 let data ="<h1> 1 to 20 Even No </h1> \n";
+                 for(let i=20; i>=1; i--){
+                    if(i%2==0)
+                     data = data + "<p>"+ i+"</p> \n";
+                 }
+                 document.getElementById("container").innerHTML = data;
+            }
+            const six=() =>{
+                 let data = `<h1> 1 to 20 Odd No </h1>` ;
+                 for(let i=19; i>=1; i=i-2){
+                     data = data + `<p> ${i}</p>`;
+                 }
+                 document.getElementById("container").innerHTML = data;
+            }
+            let allbook = ['Html','CSS','Bootstrap','javascript','React', 'Nodejs', 'php', 'mysql'];
+            const seven=()=>{                
+                let data = `<h1> Book List </h1>` ;
+                for(let i=0; i<allbook.length; i++){
+                    data=data + `<p> ${allbook[i]} </p>`;
+                }
+                document.getElementById("container").innerHTML = data;
+            }
+            const save=()=>{
+                let bookname = document.getElementById("newbook").value;
+                allbook.push(bookname); // add new element at end of array
+                seven(); // reload the list after saving new value 
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1> Javascript Dynamic Html with Loop</h1>
+            <button onclick="one()"> Print 1 to 10 </button>
+            <button onclick="two()"> Print 10 to 1 </button>
+            <button onclick="three()"> Print 1 to 20 Even No </button>
+            <button onclick="four()"> Print 1 to 20 Odd No </button>
+            <button onclick="five()"> Print 20 to 1 Even No </button>
+            <button onclick="six()"> Print 20 to 1 Odd No </button>
+            <button onclick="seven()"> Book List </button>
+            
+        </header>
+        <br/>
+            Enter Book Name : <input type="text" id="newbook"/>
+            <button onclick="save()">Save</button>
+        <br/>
+
+        <section id="container"></section>
+    </body>
+</html>

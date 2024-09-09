@@ -1,0 +1,25 @@
+ [
+    {"skill": "HTML",
+     "level":"7"},
+
+    {"skill": "Cascading Style Sheet",
+     "level":"7"},
+
+    {"skill": "Bootsrap",
+     "level":"6"},
+
+    {"skill": "Javascript", 
+    "level":"8"},
+
+    {"skill": "PHP Mysql",
+     "level":"4"},
+
+    {"skill": "Node Js",
+     "level":"9"},
+
+    {"skill": "Angular", 
+    "level":"8"},
+
+    {"skill": "Python", 
+    "level":"7"}
+ ]

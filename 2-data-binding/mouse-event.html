@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            let i = 1;
+            const one = ()=>{
+                console.log("Value is :"+i);
+                i++;
+            }
+        </script>
+    </head>
+    <body>
+        <h1> Mouse Events in  javascript </h1>
+        <button onclick="one()"> 1 Click </button>
+        <button ondblclick="one()"> 2 Click </button>
+        <button onmousedown="one()"> Mouse Down </button>
+        <button onmouseenter="one()"> Mouse Enter </button>
+        <button onmouseout="one()"> Mouse Out </button>
+        <button onmousemove="one()"> Mouse Move </button>
+        On Change : <select onchange="one()">
+            <option> choose</option>
+            <option> Bangalore</option>
+            <option> Chennai</option>
+            <option> Mumbai</option>
+        </select>
+
+    </body>
+</html>

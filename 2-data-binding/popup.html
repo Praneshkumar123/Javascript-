@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            const one =() =>{
+                alert("Hi, Your Email Sent Successfully !");
+            }
+            const two =() =>{
+               let a =  confirm("Are you sure ?")
+               alert(a);
+            }
+            const three =() =>{
+                let a = prompt("Enter Your Email Id");
+                alert("Your Email id is :"+ a);
+            }
+
+        </script>
+    </head>
+    <body>
+        <h1> 3 Types of popup window in javascript </h1>
+        <p> Alert() - It use to give confirmation message to user with "ok" button </p>
+        <button onclick="one()"> Alert - Click Me </button>
+
+        <p> Confirm() - It use to ask confirmation from user with "ok" and "cancel" button,
+            ok=>true, cancel=>false
+         </p>
+        <button onclick="two()"> Confirm - Click Me </button>
+
+        <p> Prompt() - It collect input from user  </p>
+        <button onclick="three()">Prompt()</button>
+
+
+    </body>
+</html>

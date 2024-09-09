@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        section{
+            width: 70%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 25% 75%;
+        }
+        img{
+            display: block;
+            margin: 30px 10px 10px;
+        }
+        img:hover{
+            cursor: pointer;
+            opacity: 0.5;
+            border-radius: 20px;
+        }
+    </style>
+        <script>
+            const printMe = (photour1)=>{
+                document.getElementById("mypic").src=photour1;
+            }
+        </script>
+    </head>
+    <body>
+        <h1 align="center"> How To Handle Image Using Javascript  </h1>
+        <section>
+        <div>
+                <img src="jaguar-sleeping-animal-232@3@a-thumb.jpg" height="120"  width="150" onmouseenter="printMe(this.src)"/>
+                <img src="lion.avif" height="120"  width="150" onmouseenter="printMe(this.src)"/>
+                <img src="city.jpg" height="120"  width="150" onmouseenter="printMe(this.src)"/>
+                <img src="tiger.avif" height="120"  width="150" onmouseenter="printMe(this.src)"/>
+        </div>
+        <div>
+                <img src="tiger-winter-animal-743@3@a-preview.jpg" height="570" width="650" id="mypic"/>
+        </div>
+        </section>
+    </body>
+</html>

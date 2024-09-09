@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Add Employee </title>
+        <script>
+            const save=()=>{
+                let fullname = document.getElementById("fullname").value
+                let mobile = document.getElementById("mobile").value
+                let salary = document.getElementById("salary").value
+                let city = document.getElementById("city").value
+                            let newemp= {
+                    "empname":fullname,
+                    "mobile":mobile,
+                    "salary":salary,
+                    "city":city   
+                }
+                let url ="http://localhost:1234/emplist";
+                let postData = {
+                    headers:{'Content-Type': 'application/json'},
+                    method:"POST",
+                    body:JSON.stringify(newemp) // array to json
+                }
+                fetch(url,postData)
+                .then(response=>response.json())
+                .then(empinfo=>{
+                    alert(empinfo.empname+ "Save Successfully !")
+                })
+            }
+        </script>
+    </head>
+    <body>
+        <table align="center" cellpadding="15">
+            <caption><h1> Enter Employee Details</h1></caption>
+            <tr>
+                <th>Employee Name</th>
+                 <td> <input type="text" id="fullname"/> </td>   
+            </tr>
+
+            <tr>
+                <th>Employee Mobile No </th>
+                 <td> <input type="number" id="mobile"/> </td>   
+            </tr>
+
+            <tr>
+                <th>Employee salary </th>
+                 <td> <input type="number" id="salary"/> </td>   
+            </tr>
+
+            <tr>
+                <th>Employee City </th>
+                 <td> <select id="city">
+                    <option>Choose</option>
+                    <option>Bangalore</option>
+                    <option>Coimbatore</option>
+                    <option>Mumbai</option>
+                    <option>Pune</option>
+                    <option>Lucknow</option>
+                 </select> </td>   
+            </tr>
+
+            <tr>
+                <th colspan="2">
+                    <button onclick="save()">Save</button> 
+                    <hr/>
+                    <a href="api1.html">Back To List </a>
+                </th>
+            </tr>
+        </table>
+    </body>
+</html>

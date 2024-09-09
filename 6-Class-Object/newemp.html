@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+                class ManageEmp{
+                    saveemp = ()=>{
+                        let fullname = document.getElementById("fullname").value;
+                        let mobile = document.getElementById("mobile").value;
+                        let salary = document.getElementById("salary").value;
+                        let city = document.getElementById("city").value;
+
+                        let newemp ={empname:fullname,mobile:mobile, salary:salary, city:city};
+                        let url = "http://localhost:1234/emplist";
+
+                        let postData = {
+                            headers:{'content-Type': 'application/json'},
+                            method:'post',
+                            body:JSON.stringify(newemp)
+                        }
+
+                        fetch(url, postData)
+                        .then(response=>response.json())
+                        .then(empinfo=>{
+                            alert("Employee Added Successfully!");
+                            window.location.href="class2.html";
+                        })
+                    }
+                }
+                const obj3 = new ManageEmp();
+        </script>
+    </head>
+    <body>
+        <table align="center" cellpadding="15">
+            <caption><h1> Enter Employee Details </h1></caption>
+            <tr>
+                <th> Employee Name </th>
+                <td> <input type="text" id="fullname"/> </td>
+            </tr>
+            <tr>
+                <th> Employee Mobile No </th>
+                <td> <input type="number" id="mobile"/> </td>
+            </tr>
+            <tr>
+                <th> Employee salary </th>
+                <td> <input type="text" id="salary"/> </td>
+            </tr>
+            <tr>
+                <th> Employee City </th>
+                <td> <input type="text" id="city"/> </td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <button onclick="obj3.saveemp()"> Save Employee </button>
+                    <hr/>
+                    <a href="class2.html"> Back To List </a>
+                </th>
+            </tr>
+        </table>
+    </body>
+</html>
